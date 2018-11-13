@@ -14,20 +14,30 @@ CustomConfig.properties	客户定制化配置的文件
 
 ## 2.	集成SDK
 
-### 1.	将上述的三个aar文件放入工程的libs文件夹
-### 2.	在gradle中添加
+###     1.	将上述的三个aar文件放入工程的libs文件夹
+###     2.	在gradle中添加
 
-repositories {
-        flatDir {
-            dirs 'libs'
-        }
-}
-### 3.	在gradle的dependencies{ }中添加：
-compile (name:'securepay-xxx',ext:'aar')
-compile (name:'base- xxx'',ext:'aar')
-compile (name:'mobilebank- xxx'',ext:'aar')
-（xxx为当前sdk版本号，请保持三个库的版本号一致）
-### 4.	更改 AndroidManifest.xml 文件
+repositories {  
+
+        flatDir {  
+        
+            dirs 'libs'  
+            
+        }  
+        
+}  
+
+###     3.	在gradle的dependencies{ }中添加：
+
+compile (name:'securepay-xxx',ext:'aar')  
+
+compile (name:'base- xxx'',ext:'aar')  
+
+compile (name:'mobilebank- xxx'',ext:'aar')  
+
+（xxx为当前sdk版本号，请保持三个库的版本号一致）  
+
+###     4.	更改 AndroidManifest.xml 文件
 增加如下权限：
    
 为了增加安全控制系数，商户可根据需要，添加获取地理位置的权限，没有配置该权限，SDK不会进行位置信息的获取动作。在配置该权限后，部分手机在用户进入支付时，会弹框提示用户应用程序会获取用户位置信息（如小米3），如果业务风险控制严格的请评估用户体验影响后自行配置该功能。如需要配置，添加以下权限：
@@ -44,11 +54,11 @@ SDK支持部分手机的短信码自动读取功能，如果需要使用，需�
 ## 3.	调用方式
 
 参考Demo调用相应的接口完成相应操作：
-### 1.	支付
+###     1.	支付
 首先商户根据demo中的getPayToken（JsonObject oj）进行创单，成功之后取出返回报文中的” gateway_url”，然后调用  SecurePayService.securePay（）方法进性后续功能。
-### 2.	签约
+###     2.	签约
 首先商户根据demo中的getSignToken（JsonObject oj）进行创单，成功之后取出返回报文中的” gateway_url”，然后调用 SecurePayService.secureSign（）方法进性后续功能。
-### 3.	参数介绍：
+###     3.	参数介绍：
 RequestItem: 商户调用连连SDK时的订单信息，Demo中仅供参考，商户需根据接口文档进行完善。
 
 ## 4.	自定义说明
