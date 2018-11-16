@@ -30,22 +30,22 @@
             dirs 'libs' 
         }   
     } 
-    ```
+```
 3. 在 gradle 的 dependencies{ }中添加：   
 ```objc
      compile (name:'securepay-xxx',ext:'aar')  
      compile (name:'base- xxx'',ext:'aar')  
      compile (name:'mobilebank- xxx'',ext:'aar') 
-      ```
+```
      （xxx 为当前 sdk 版本号，请保持三个库的版本号一致）  
 4. 更改 AndroidManifest.xml 文件 增加如下权限： 
-  ```objc  
+```objc  
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  ```
+```
   为了增加安全控制系数，商户可根据需要，添加获取地理位置的权限，没 有配置该权限，
 SDK 不会进行位置信息的获取动作。在配置该权限后，部分手机在用户进入支付时，会弹框
 提示用户应用程序会获取用户位置信息（如小米 3），如果业务风险控制严格的请评估用户
