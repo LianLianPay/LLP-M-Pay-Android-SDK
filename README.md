@@ -82,7 +82,7 @@ SDK 不会进行位置信息的获取动作。在配置该权限后，部分手�
  > 参考 Demo 调用相应的接口完成相应操作：   
   
  1. 支付 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用  SecurePayService.securePay（）方法进性后 续功能。   
- 2. 签约 首先商户向连连服务端api进行请求创单，成功之后取出  出返回报文中的” gateway_url”，然后调用 SecurePayService.secureSign（）方法进性 后续功能。  
+ 2. 签约 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用 SecurePayService.secureSign（）方法进性 后续功能。  
  3. 参数介绍： 
 RequestItem: 商户调用连连 SDK 时的订单信息，Demo 中仅供参考，商户需根据
 接口文档进行完善。 
