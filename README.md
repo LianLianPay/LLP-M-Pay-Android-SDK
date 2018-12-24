@@ -13,7 +13,8 @@
 |base-xxx.aar                        |SDK 库包  |
 |mobilebank- xxx.aar                               |SDK 库包  |
 |securepay- xxx.aar     |  SDK 库包 |
-|连连支付接入指南                        |接入说明    |
+|连连支付统一网关 Android SDK 接入指南                        |接入说明    |
+|连连支付统一网关 手机银行 Android SDK 接入指南                        |接入说明    |
 |CustomConfig.properties               |    客户定制化配置的文件  |
 （xxx 为当前 sdk 版本号，请保持三个库的版本号一致） 
 
@@ -81,9 +82,11 @@ SDK 不会进行位置信息的获取动作。在配置该权限后，部分手�
   
  > 参考 Demo 调用相应的接口完成相应操作：   
   
- 1. 支付 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用  SecurePayService.securePay（）方法进行后 续功能。   
- 2. 签约 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用 SecurePayService.secureSign（）方法进行 后续功能。  
- 3. 参数介绍： 
+ 1. 支付： 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用  SecurePayService.securePay（）方法进行后 续功能。   
+ 2. 签约： 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用 SecurePayService.secureSign（）方法进行 后续功能。  
+ 3. 网银android支付： 首先商户向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，然后调用  MobileBankService.pay（）方法进行 后续功能。 
+ 4. 网银WAP支付：  首先商户在wap页面中，向连连服务端api进行请求创单，成功之后取出 返回报文中的” gateway_url”，在h5中通过href=gateway_url跳转。在这个过程中，设置加载Wap的WebView拦截scheme:“llebankpay://”，将拦截到的url作为参数调用SDK支付接口。最后调用  MobileBankService.pay（）方法进行 后续功能。 
+ 4. 参数介绍： 
 RequestItem: 商户调用连连 SDK 时的订单信息，Demo 中仅供参考，商户需根据
 接口文档进行完善。 
 
